@@ -24,7 +24,7 @@ const fileUpLoad = ( req, res = response) => {
         })
     }
 
-    // validar qye ecista ub archivo
+    // validar qye exista ub archivo
     if(!req.files || Object.keys(req.files).length === 0 ){
         return res.status(400).json({
             ok:     false,

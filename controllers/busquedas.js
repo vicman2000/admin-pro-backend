@@ -30,8 +30,8 @@ const getTodo = async( req, res = response ) => {
 
 const getDocumentosColeccion = async( req, res = response ) => {
     const tabla = req.params.tabla;
-    const busqueda = req.params.busqueda || '';
-    const regex = new RegExp(busqueda, 'i');
+    const busqueda = req.params.busqueda || '';    
+    const regex = new RegExp(busqueda, 'i'); // Aplico regex, para busquedas generales quitando case sensitive con la 'i'
 
     let data = [];
 
@@ -46,8 +46,7 @@ const getDocumentosColeccion = async( req, res = response ) => {
                                 .populate('usuario' ,'nombre img');
             break;
         case 'usuarios':
-            data = await Usuario.find({ nombre: regex })
-                                .populate('usuario','nombre');
+            data = await Usuario.find({ nombre: regex });                                
             break;            
         default:
             return res.status(400).json({

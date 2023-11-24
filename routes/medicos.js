@@ -8,7 +8,8 @@ const { validarJWT } = require('../middlewares/validar-jwt');
 const { getMedicos
     , crearMedico
     , actualizarMedico
-    , borrarMedico 
+    , borrarMedico, 
+    getMedicoById
     } = require('../controllers/medicos');
 
 
@@ -16,9 +17,16 @@ const { getMedicos
 const router = Router();
 
 
-router.get( '/',      
+router.get( '/',
+    validarJWT,
     getMedicos 
 );
+
+router.get( '/:id',
+    validarJWT,
+    getMedicoById
+);
+
 
 router.post( '/',
     [

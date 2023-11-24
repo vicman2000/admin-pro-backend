@@ -32,7 +32,7 @@ const crearHospital = async(req, res = response) => {
 
         res.json({
             ok: true,
-            msg: hospitalDb
+            hospital: hospitalDb
         });
        
     } catch (error) {
